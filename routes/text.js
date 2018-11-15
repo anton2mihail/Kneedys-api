@@ -8,7 +8,7 @@ const authToken = process.env.AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 const FRONT_URL = process.env.FRONTEND_PUBLIC_URL;
 
-function handleInboundSms(request, response) {
+/*function handleInboundSms(request, response) {
   const params = Object.assign(request.query, request.body)
   console.log(params.Body);
   fetch(FRONT_URL, {
@@ -20,7 +20,7 @@ function handleInboundSms(request, response) {
     console.log("Eta Sent");
   });
   response.status(204).send()
-}
+}*/
 
 module.exports = (() => {
   router.post('/', (req, res) => {
@@ -44,7 +44,7 @@ module.exports = (() => {
       });
     })
   });
-  router.post('/inbound-sms', handleInboundSms);
+ // router.post('/inbound-sms', handleInboundSms);
 
 
 
