@@ -24,7 +24,7 @@ function handleInboundSms(request, response) {
 
 module.exports = (() => {
   router.post('/', (req, res) => {
-    console.log(req.data, "Before the data is recieved");
+    console.log(req.data);
     req.on('data', (e) => {
       e = JSON.parse(e);
       e.forEach((el) => {
@@ -41,9 +41,10 @@ module.exports = (() => {
     })
     res.end();
   });
- router.post('/inbound-sms', handleInboundSms);
+  router.post('/inbound-sms', handleInboundSms);
 
 
 
   return router;
 })();
+
