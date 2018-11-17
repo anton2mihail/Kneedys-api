@@ -23,7 +23,6 @@ module.exports = (() => {
       const options = e.options;
       add(user_id, options).then((resolve, reject) => {
         if (reject) throw reject;
-        console.log(resolve);
         res.json({
           status: 200,
           added: true
