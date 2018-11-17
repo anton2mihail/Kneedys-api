@@ -37,8 +37,8 @@ module.exports = (() => {
           .then(message => console.log(message.sid))
           .done(() => {});
       });
+      res.json(JSON.stringify(e));
     })
-    res.end();
   });
   router.post('/inbound-sms', handleInboundSms);
   return router;
