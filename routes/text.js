@@ -8,7 +8,6 @@ const client = require('twilio')(accountSid, authToken);
 
 function handleInboundSms(request, response) {
   const params = Object.assign(request.query, request.body)
-  console.log(params.Body);
   client.messages
     .create({
       body: "It's gonna take " + params.Body + " minutes.",
@@ -24,7 +23,6 @@ function handleInboundSms(request, response) {
 
 module.exports = (() => {
   router.post('/', (req, res) => {
-    console.log(req.data);
     req.on('data', (e) => {
       console.log(e);
       e = JSON.parse(e);
@@ -43,8 +41,5 @@ module.exports = (() => {
     res.end();
   });
   router.post('/inbound-sms', handleInboundSms);
-
-
-
   return router;
 })();
